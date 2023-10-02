@@ -1,8 +1,8 @@
-import { Index } from "./components/Index"
+import { Sidebar } from "./components/Sidebar"
 function App() {
   return (
     <div className="App">
-      <Index />
+      <Sidebar />
     </div>
   )
 }
