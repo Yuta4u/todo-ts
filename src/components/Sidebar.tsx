@@ -2,15 +2,14 @@ import { ReactComponent as ArrowDown } from "../assets/icons/arrow-down.svg"
 import { ReactComponent as PlusIcon } from "../assets/icons/plus.svg"
 
 // CHILD
-import { Today as TodayTodos } from "../child/Todos/Today"
-import { Upcoming as UpcomingTodos } from "../child/Todos/Upcoming"
+import { TodayBtn } from "../child/Button/TodayBtn"
+import { UpcomingBtn } from "../child/Button/UpcomingBtn"
 import { Dropdown } from "../child/Dropdown"
 
 import { useState } from "react"
 
 export function Sidebar() {
-  const [isActive, setIsActive] = useState<boolean>(true)
-  console.log(isActive)
+  const [isActive, setIsActive] = useState<string>("today")
 
   return (
     <div className="sidebar w-72 h-screen py-5 px-5 bg-primary">
@@ -42,8 +41,8 @@ export function Sidebar() {
 
       {/* TODOS  */}
       <div className="todos">
-        <TodayTodos isActiveProps={setIsActive} isActiveFlag={isActive} />
-        <UpcomingTodos isActiveProps={setIsActive} isActiveFlag={isActive} />
+        <TodayBtn isActiveProps={setIsActive} isActiveFlag={isActive} />
+        <UpcomingBtn isActiveProps={setIsActive} isActiveFlag={isActive} />
       </div>
     </div>
   )
