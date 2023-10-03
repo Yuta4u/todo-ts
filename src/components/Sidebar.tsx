@@ -6,11 +6,12 @@ import { TodayBtn } from "../child/Button/TodayBtn"
 import { UpcomingBtn } from "../child/Button/UpcomingBtn"
 import { Dropdown } from "../child/Dropdown"
 
-import { useState } from "react"
+type SidebarProps = {
+  handleIsActive: React.Dispatch<React.SetStateAction<string>>
+  isActive: string
+}
 
-export function Sidebar() {
-  const [isActive, setIsActive] = useState<string>("today")
-
+export function Sidebar({ handleIsActive, isActive }: SidebarProps) {
   return (
     <div className="sidebar w-72 h-screen py-5 px-5 bg-primary">
       {/* PROFILE  */}
@@ -41,8 +42,8 @@ export function Sidebar() {
 
       {/* TODOS  */}
       <div className="todos">
-        <TodayBtn isActiveProps={setIsActive} isActiveFlag={isActive} />
-        <UpcomingBtn isActiveProps={setIsActive} isActiveFlag={isActive} />
+        <TodayBtn handleIsActive={handleIsActive} isActive={isActive} />
+        <UpcomingBtn handleIsActive={handleIsActive} isActive={isActive} />
       </div>
     </div>
   )

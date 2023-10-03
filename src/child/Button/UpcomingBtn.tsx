@@ -1,16 +1,16 @@
 import { ReactComponent as UpcomingIcon } from "../../assets/icons/calendar.svg"
 
 type UpcomingBtnProps = {
-  isActiveProps: React.Dispatch<React.SetStateAction<string>>
-  isActiveFlag: string
+  handleIsActive: React.Dispatch<React.SetStateAction<string>>
+  isActive: string
 }
 
-export function UpcomingBtn({ isActiveProps, isActiveFlag }: UpcomingBtnProps) {
+export function UpcomingBtn({ handleIsActive, isActive }: UpcomingBtnProps) {
   return (
     <button
-      onClick={() => isActiveProps("upcoming")}
+      onClick={() => handleIsActive("upcoming")}
       className={`w-full flex p-2 rounded text-sm gap-2  ${
-        isActiveFlag === "upcoming" ? "bg-red-200" : "hover:bg-hover"
+        isActive === "upcoming" ? "bg-red-200" : "hover:bg-hover"
       }`}
     >
       <UpcomingIcon className="w-5 h-5" />

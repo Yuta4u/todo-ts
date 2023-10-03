@@ -1,16 +1,16 @@
 import { ReactComponent as TodayIcon } from "../../assets/icons/record.svg"
 
 type TodayBtnProps = {
-  isActiveProps: React.Dispatch<React.SetStateAction<string>>
-  isActiveFlag: string
+  handleIsActive: React.Dispatch<React.SetStateAction<string>>
+  isActive: string
 }
 
-export function TodayBtn({ isActiveProps, isActiveFlag }: TodayBtnProps) {
+export function TodayBtn({ handleIsActive, isActive }: TodayBtnProps) {
   return (
     <button
-      onClick={() => isActiveProps("today")}
+      onClick={() => handleIsActive("today")}
       className={`w-full flex p-2 mt-5 rounded text-sm gap-2  ${
-        isActiveFlag === "today" ? "bg-red-200" : "hover:bg-hover"
+        isActive === "today" ? "bg-red-200" : "hover:bg-hover"
       }`}
     >
       <TodayIcon className="w-5 h-5" />
