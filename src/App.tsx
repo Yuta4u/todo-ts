@@ -5,7 +5,7 @@ import { useState } from "react"
 import { Upcoming } from "./components/Upcoming"
 
 function App() {
-  const [isActive, setIsActive] = useState<string>("lel")
+  const [isActive, setIsActive] = useState<string>("today")
 
   return (
     <div className="App flex">
