@@ -4,7 +4,7 @@ import { ReactComponent as PlusIcon } from "../assets/icons/plus.svg"
 // CHILD
 import { TodayBtn } from "../child/Button/TodayBtn"
 import { UpcomingBtn } from "../child/Button/UpcomingBtn"
-import { Dropdown } from "../child/Dropdown"
+import { DropdownBtn } from "../child/Button/DropdownBtn"
 
 type SidebarProps = {
   handleIsActive: React.Dispatch<React.SetStateAction<string>>
@@ -33,7 +33,7 @@ export function Sidebar({ handleIsActive, isActive }: SidebarProps) {
                 <ArrowDown className="w-3 h-3 font-bold" />
               </div>
             </div>
-            <Dropdown />
+            <DropdownBtn />
           </div>
         </div>
         <button className="btn btn-sm mt-5 w-full rounded bg-red-500 text-slate-50 hover:bg-red-700 ">

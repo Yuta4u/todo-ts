@@ -1,6 +1,6 @@
-import { ReactComponent as Setting } from "../assets/icons/setting.svg"
+import { ReactComponent as Setting } from "../../assets/icons/setting.svg"
 
-export function Dropdown() {
+export function DropdownBtn() {
   return (
     <ul
       tabIndex={0}
