@@ -36,7 +36,7 @@ export function Sidebar({ handleIsActive, isActive }: SidebarProps) {
             <DropdownBtn />
           </div>
         </div>
-        <button className="btn btn-sm mt-5 w-full rounded bg-red-500 text-slate-50 hover:bg-red-700 ">
+        <button className="btn btn-sm mt-5 w-full rounded bg-red-500 text-slate-50 hover:bg-red-700 normal-case">
           <PlusIcon className="w-4 h-4" />
           Add todo
         </button>

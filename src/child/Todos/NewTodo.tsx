@@ -8,18 +8,27 @@ type NewTodoProps = {
 type TempNewTodoProps = {
   title: string
   deskripsi: string
-  // date: string
+  date: string
 }
 
 export function NewTodo({ handleNTodo }: NewTodoProps) {
   const [tempNewTodo, setTempNewTodo] = useState<TempNewTodoProps>({
     title: "",
     deskripsi: "",
-    // date: "",
+    date: "",
   })
 
-  const [newTodoDate, setNewTodoDate] = useState<any>("")
-  console.log(newTodoDate)
+  // on submit function
+
+  // on change function
+  const handleOnChangeNewTodoDate = (value: string) => {
+    const date = value?.toString().substring(0, 10).split(" ")
+    const formatDate = date && `${date[0] + " " + +date[2] + " " + date[1]}`
+    setTempNewTodo({
+      ...tempNewTodo,
+      ["date"]: formatDate && formatDate,
+    })
+  }
 
   const handleOnChangeNewTodo = (
     event:
@@ -49,29 +58,36 @@ export function NewTodo({ handleNTodo }: NewTodoProps) {
         onChange={handleOnChangeNewTodo}
       ></textarea>
 
-      <details className="dropdown mb-32">
-        <summary className="btn">open or close</summary>
-        <div className="mt-5">
-          <CalendarComponent handleOnChange={setNewTodoDate} />
+      {/* BUTTON DATE  */}
+      <div className="dropdown mb-9">
+        <div
+          tabIndex={0}
+          className="btn btn-xs rounded-md bg-white text-xs text-teal-600 border-2 normal-case"
+        >
+          {tempNewTodo.date ? tempNewTodo.date : "Due date"}
         </div>
-        {/* <div className="shadow menu dropdown-content z-[1]rounded-md w-72">
-        
-        </div> */}
-      </details>
+        <div tabIndex={0} className="dropdown-content mt-5 absolute z-10">
+          <CalendarComponent handleOnChange={handleOnChangeNewTodoDate} />
+        </div>
+      </div>
+
       <div className="divider absolute inset-x-0 bottom-4"></div>
       <div className="flex justify-end p-2 absolute inset-x-0 bottom-0">
+        {/* BUTTON CANCEL  */}
         <button
-          className="btn btn-xs rounded-md bg-slate-200 text-slate-600 mr-1"
+          className="btn btn-xs rounded-md bg-hover mr-1 normal-case"
           onClick={() => handleNTodo(false)}
         >
-          cancel
+          Cancel
         </button>
+
+        {/*  BUTTON ADD TODO  */}
         <button
-          className="btn btn-xs rounded-md bg-red-500 text-slate-50 hover:bg-red-700"
+          className="btn btn-xs rounded-md bg-red-500 text-slate-50 hover:bg-red-700 normal-case"
           disabled={Object.values(tempNewTodo).includes("")}
-          onClick={() => console.log("lel")}
+          onClick={() => console.log(tempNewTodo)}
         >
-          Add task
+          Add todo
         </button>
       </div>
     </div>

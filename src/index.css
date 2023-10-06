@@ -4,9 +4,9 @@
 @import "tailwindcss/utilities";
 
 .react-calendar {
-  width: 350px;
+  /* width: 350px; */
   max-width: 100%;
-  background: #f4f4f457;
+  background: #fffffff4;
   color: #222;
   border-radius: 8px;
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
