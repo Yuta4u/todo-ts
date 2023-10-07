@@ -5,6 +5,13 @@ import { ReactComponent as PlusIcon } from "../assets/icons/plus.svg"
 import { TodayBtn } from "../child/Button/TodayBtn"
 import { UpcomingBtn } from "../child/Button/UpcomingBtn"
 import { DropdownBtn } from "../child/Button/DropdownBtn"
+import { ModalNewTodo } from "../child/Todos/ModalNewTodo"
+
+declare global {
+  interface HTMLElement {
+    showModal: () => void
+  }
+}
 
 type SidebarProps = {
   handleIsActive: React.Dispatch<React.SetStateAction<string>>
@@ -12,6 +19,13 @@ type SidebarProps = {
 }
 
 export function Sidebar({ handleIsActive, isActive }: SidebarProps) {
+  const handleShowModalAddTodo = () => {
+    const modal = document.getElementById("add-todo")
+    if (modal) {
+      modal.showModal()
+    }
+  }
+
   return (
     <div className="w-72 laptop:block tablet:hidden">
       <div className="sidebar w-72 h-screen py-5 px-5 bg-primary fixed">
@@ -36,10 +50,14 @@ export function Sidebar({ handleIsActive, isActive }: SidebarProps) {
             <DropdownBtn />
           </div>
         </div>
-        <button className="btn btn-sm mt-5 w-full rounded bg-red-500 text-slate-50 hover:bg-red-700 normal-case">
+        <button
+          onClick={handleShowModalAddTodo}
+          className="btn btn-sm mt-5 w-full rounded bg-red-500 text-slate-50 hover:bg-red-700 normal-case"
+        >
           <PlusIcon className="w-4 h-4" />
           Add todo
         </button>
+        <ModalNewTodo />
 
         {/* TODOS  */}
         <div className="todos">

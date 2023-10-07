@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { ReactComponent as CloseIcon } from "../../assets/icons/close.svg"
 import CalendarComponent from "../Others/Calendar"
 
 type NewTodoProps = {
@@ -18,10 +19,8 @@ export function NewTodo({ handleNTodo }: NewTodoProps) {
     date: "",
   })
 
-  // on submit function
-
   // on change function
-  const handleOnChangeNewTodoDate = (value: string) => {
+  const handleOnChangeNewTodoDate = (value: Date) => {
     const date = value?.toString().substring(0, 10).split(" ")
     const formatDate = date && `${date[0] + " " + +date[2] + " " + date[1]}`
     setTempNewTodo({
@@ -52,19 +51,30 @@ export function NewTodo({ handleNTodo }: NewTodoProps) {
         onChange={handleOnChangeNewTodo}
       />
       <textarea
-        className="textarea textarea-ghost text-xs rounded-none p-0 focus:outline-none h-3/5 scroll-m-96 overflow-hidden h"
+        className="textarea textarea-ghost text-xs rounded-none p-0 focus:outline-none h-3/5 resize-none"
         name="deskripsi"
         placeholder="Deskripsi"
         onChange={handleOnChangeNewTodo}
       ></textarea>
 
       {/* BUTTON DATE  */}
-      <div className="dropdown mb-9">
+      <div className="dropdown mb-9 mt-1.5">
         <div
           tabIndex={0}
           className="btn btn-xs rounded-md bg-white text-xs text-teal-600 border-2 normal-case"
         >
           {tempNewTodo.date ? tempNewTodo.date : "Due date"}
+          <div tabIndex={0} className={`${!tempNewTodo.date ? "hidden" : ""}`}>
+            <CloseIcon
+              className="w-4 h-4 text-transparent border-none mt-0.5 -mx-1"
+              onClick={() =>
+                setTempNewTodo({
+                  ...tempNewTodo,
+                  ["date"]: "",
+                })
+              }
+            />
+          </div>
         </div>
         <div tabIndex={0} className="dropdown-content mt-5 absolute z-10">
           <CalendarComponent handleOnChange={handleOnChangeNewTodoDate} />
