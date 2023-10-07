@@ -3,8 +3,8 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+/* CALENDAR */
 .react-calendar {
-  /* width: 350px; */
   max-width: 100%;
   background: #fffffff4;
   color: #222;

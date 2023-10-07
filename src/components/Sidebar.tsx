@@ -7,6 +7,8 @@ import { UpcomingBtn } from "../child/Button/UpcomingBtn"
 import { DropdownBtn } from "../child/Button/DropdownBtn"
 import { ModalNewTodo } from "../child/Todos/ModalNewTodo"
 
+import { useState } from "react"
+
 declare global {
   interface HTMLElement {
     showModal: () => void
@@ -19,6 +21,8 @@ type SidebarProps = {
 }
 
 export function Sidebar({ handleIsActive, isActive }: SidebarProps) {
+  const [sidebarOpen, setSidebarOpen] = useState<boolean>(false)
+
   const handleShowModalAddTodo = () => {
     const modal = document.getElementById("add-todo")
     if (modal) {
@@ -27,7 +31,7 @@ export function Sidebar({ handleIsActive, isActive }: SidebarProps) {
   }
 
   return (
-    <div className="w-72 laptop:block tablet:hidden">
+    <div className="w-72 laptop:block">
       <div className="sidebar w-72 h-screen py-5 px-5 bg-primary fixed">
         {/* PROFILE  */}
         <div
@@ -50,6 +54,7 @@ export function Sidebar({ handleIsActive, isActive }: SidebarProps) {
             <DropdownBtn />
           </div>
         </div>
+
         <button
           onClick={handleShowModalAddTodo}
           className="btn btn-sm mt-5 w-full rounded bg-red-500 text-slate-50 hover:bg-red-700 normal-case"
