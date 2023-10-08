@@ -5,7 +5,7 @@ const tomorroww = `${date[0] + " " + (+date[2] + 1) + " " + date[1]}`
 const data = [
   {
     title: "bersih2 rumah",
-    deskripsi: "cuci piring, cuci baju, jemur, dll",
+    deskripsi: "cuci piring, cuci baju, jemur, dllkkkkkkkkkkkkkkkkkk",
     date: today,
   },
   {

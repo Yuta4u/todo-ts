@@ -38,7 +38,9 @@ export function Sidebar({
 
   return (
     <div
-      className={`${showSidebar ? "w-72" : "w-0"} duration-300 h-screen z-50`}
+      className={`${
+        showSidebar ? "w-72" : "w-0"
+      } tablet:absolute laptop:static duration-300 h-screen z-50`}
     >
       <div
         className={`sidebar w-72 ${show} h-screen py-5 px-5 bg-primary fixed`}
