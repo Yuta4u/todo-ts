@@ -9,6 +9,31 @@ const data = [
     date: today,
   },
   {
+    title: "bersih2 rumah",
+    deskripsi: "cuci piring, cuci baju, jemur, dll",
+    date: today,
+  },
+  {
+    title: "bersih2 rumah",
+    deskripsi: "cuci piring, cuci baju, jemur, dll",
+    date: today,
+  },
+  {
+    title: "bersih2 rumah",
+    deskripsi: "cuci piring, cuci baju, jemur, dll",
+    date: today,
+  },
+  {
+    title: "bersih2 rumah",
+    deskripsi: "cuci piring, cuci baju, jemur, dll",
+    date: today,
+  },
+  {
+    title: "bersih2 rumah",
+    deskripsi: "cuci piring, cuci baju, jemur, dll",
+    date: today,
+  },
+  {
     title: "bengkel mobil",
     deskripsi: "ganti oli, cek mesin",
     date: tomorroww,

@@ -4,7 +4,7 @@ type NewTodoProps = {
   handleNTodo: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-export function NewTodoBtn({ handleNTodo }: NewTodoProps) {
+export function AddTodo({ handleNTodo }: NewTodoProps) {
   // function
   return (
     <div className="flex gap-2 mt-5">

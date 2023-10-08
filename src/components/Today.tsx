@@ -1,5 +1,5 @@
 import { TodayTodo } from "../child/Todos/TodayTodo"
-import { NewTodoBtn } from "../child/Button/NewTodoBtn"
+import { AddTodo } from "../child/Button/AddTodo"
 import { NewTodo } from "../child/Todos/NewTodo"
 import { useState } from "react"
 
@@ -18,7 +18,7 @@ export function Today() {
       {nTodo ? (
         <NewTodo handleNTodo={setNTodo} />
       ) : (
-        <NewTodoBtn handleNTodo={setNTodo} />
+        <AddTodo handleNTodo={setNTodo} />
       )}
     </div>
   )

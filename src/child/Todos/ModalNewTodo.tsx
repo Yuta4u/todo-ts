@@ -39,7 +39,7 @@ export function ModalNewTodo() {
 
   return (
     <dialog id="add-todo" className="modal">
-      <div className="flex flex-col h-52 border-2 p-4 relative rounded-lg bg-white w-2/5">
+      <div className="flex flex-col h-52 border-2 p-4 relative rounded-lg bg-white tablet:w-4/5 laptop:w-2/5">
         <input
           type="text"
           name="title"
