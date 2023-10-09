@@ -1,0 +1,37 @@
+{
+  "data": [
+    {
+      "user": "yuta",
+      "todos": [
+        {
+          "id": 1,
+          "title": "Todos 1",
+          "deskripsi": "benerin motor",
+          "date": "Mon 9 Oct",
+          "check": false
+        },
+        {
+          "id": 2,
+          "title": "Todos 2",
+          "deskripsi": "-bersih-bersih rumah\n-cuci piring\n-jemur baju",
+          "date": "Mon 9 Oct",
+          "check": false
+        },
+        {
+          "id": 3,
+          "title": "Todos 3",
+          "deskripsi": "ngapain aja dah",
+          "date": "Mon 9 Oct",
+          "check": false
+        },
+        {
+          "id": 4,
+          "title": "Todos 4",
+          "deskripsi": "rebahan sampe tulang ekor copot",
+          "date": "Mon 9 Oct",
+          "check": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,17 +1,12 @@
-import { motion } from "framer-motion"
 import Calendar from "react-calendar"
 import "../../index.css"
 
 const CalendarComponent = ({ handleOnChange }: any) => {
   return (
-    <motion.div
-      initial={{ x: -500 }}
-      animate={{ x: 0 }}
-      transition={{ duration: 3, ease: "backOut", delay: 0.5 }}
+    <Calendar
       className="calendar-container tablet:w-72"
-    >
-      <Calendar onChange={(value) => handleOnChange(value)} />
-    </motion.div>
+      onChange={(value) => handleOnChange(value)}
+    />
   )
 }
 
