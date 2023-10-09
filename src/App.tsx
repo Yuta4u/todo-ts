@@ -10,7 +10,7 @@ const queryClient = new QueryClient()
 
 function App() {
   const [isActive, setIsActive] = useState<string>("today")
-  const [showSidebar, setShowSidebar] = useState<boolean>(false)
+  const [showSidebar, setShowSidebar] = useState<boolean>(true)
 
   return (
     <QueryClientProvider client={queryClient}>
