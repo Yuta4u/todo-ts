@@ -1,23 +1,57 @@
-import { useState } from "react"
 import { ReactComponent as CloseIcon } from "../../assets/icons/close.svg"
+import { useState } from "react"
+import { useMutation, useQueryClient } from "react-query"
+import { postTodos } from "../../api"
+
 import CalendarComponent from "../Others/Calendar"
 
 type TempNewTodoProps = {
   title: string
   deskripsi: string
-  date: string
+  date: string | undefined
+  check: boolean
 }
 
 export function ModalNewTodo() {
+  const queryClient = useQueryClient()
   const [tempNewTodo, setTempNewTodo] = useState<TempNewTodoProps>({
     title: "",
     deskripsi: "",
     date: "",
+    check: false,
   })
 
+  const alertSuccess = () => {
+    return (
+      <div className="alert alert-success">
+        <span>Your purchase has been confirmed!</span>
+      </div>
+    )
+  }
+
+  // post mutation function
+  const postTodosMutation = useMutation({
+    mutationFn: postTodos,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["todos"] })
+      alertSuccess()
+    },
+  })
+
+  // handle submit new todo
+  const handlePostTodos = (): void => {
+    postTodosMutation.mutate(tempNewTodo)
+    setTempNewTodo({
+      title: "",
+      deskripsi: "",
+      date: "",
+      check: false,
+    })
+  }
+
   // on change function
-  const handleOnChangeNewTodoDate = (value: Date) => {
-    const date = value?.toString().substring(0, 10).split(" ")
+  const handleOnChangeNewTodoDate = (value: string | undefined) => {
+    const date = value?.substring(0, 10).split(" ")
     const formatDate = date && `${date[0] + " " + +date[2] + " " + date[1]}`
     setTempNewTodo({
       ...tempNewTodo,
@@ -31,10 +65,16 @@ export function ModalNewTodo() {
       | React.ChangeEvent<HTMLInputElement>
   ) => {
     const { name, value } = event.target
-    setTempNewTodo({
-      ...tempNewTodo,
-      [name]: value,
-    })
+    const checkColumn = value.match(/\n/g)
+
+    if (checkColumn?.length != 4) {
+      setTempNewTodo({
+        ...tempNewTodo,
+        [name]: value,
+      })
+    } else {
+      alert("column tidak boleh lebih dari 3")
+    }
   }
 
   return (
@@ -44,6 +84,7 @@ export function ModalNewTodo() {
           type="text"
           name="title"
           placeholder="Todo Name"
+          value={tempNewTodo.title}
           className="input input-sm rounded-none p-0  font-semibold focus:outline-none"
           onChange={handleOnChangeNewTodo}
         />
@@ -51,6 +92,7 @@ export function ModalNewTodo() {
           className="textarea textarea-ghost text-xs rounded-none p-0 focus:outline-none h-3/5 resize-none"
           name="deskripsi"
           placeholder="Deskripsi"
+          value={tempNewTodo.deskripsi}
           onChange={handleOnChangeNewTodo}
         ></textarea>
 
@@ -94,7 +136,7 @@ export function ModalNewTodo() {
           <button
             className="btn btn-xs rounded-md bg-red-500 text-slate-50 hover:bg-red-700 normal-case"
             disabled={Object.values(tempNewTodo).includes("")}
-            onClick={() => console.log(tempNewTodo)}
+            onClick={handlePostTodos}
           >
             Add todo
           </button>

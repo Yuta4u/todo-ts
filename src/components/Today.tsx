@@ -5,7 +5,7 @@ import { useState } from "react"
 import { useQuery, useQueryClient } from "react-query"
 
 // api
-import { getData } from "../api"
+import { getTodos } from "../api"
 
 type TodosProps = {
   id: number
@@ -13,12 +13,11 @@ type TodosProps = {
   deskripsi: string
   date: string
   check: boolean
-}
-
-type TodosDataProps = {
-  user: "string"
-  todos: TodosProps[]
 }[]
+
+// type TodosDataProps = {
+//   todos: TodosProps[]
+// }[]
 
 export function Today() {
   const queryClient = useQueryClient()
@@ -29,11 +28,13 @@ export function Today() {
   const today = `${date[0] + " " + +date[2] + " " + date[1]}`
 
   // filtered data
-  const data: TodosDataProps | undefined = queryClient.getQueryData("todos")
-  const filteredTodos = data && data[0].todos.filter((e) => e.date === today)
+  const data: TodosProps | undefined = queryClient.getQueryData("todos")
+  const filteredTodos = data && data.filter((e) => e.date == today)
 
   // handle get data
-  const { isLoading } = useQuery("todos", getData, {
+  const { isLoading } = useQuery({
+    queryFn: getTodos,
+    queryKey: ["todos"],
     refetchOnMount: false,
     refetchOnWindowFocus: false,
   })
@@ -48,8 +49,8 @@ export function Today() {
         <div className="text-2xl font-bold">Today</div>
         <div className="text-xs text-gray-500 mt-3">{today}</div>
       </div>
-      {filteredTodos?.map((_) => (
-        <TodayTodo key={_.id} data={_} />
+      {filteredTodos?.map((_, i) => (
+        <TodayTodo data={_} key={i + 1} />
       ))}
       {nTodo ? (
         <NewTodo handleNTodo={setNTodo} />

@@ -1,11 +1,15 @@
 import Calendar from "react-calendar"
 import "../../index.css"
 
-const CalendarComponent = ({ handleOnChange }: any) => {
+type CalendarComponentProps = {
+  handleOnChange: (value: string | undefined) => void
+}
+
+const CalendarComponent = ({ handleOnChange }: CalendarComponentProps) => {
   return (
     <Calendar
       className="calendar-container tablet:w-72"
-      onChange={(value) => handleOnChange(value)}
+      onChange={(value) => handleOnChange(value?.toString())}
     />
   )
 }
