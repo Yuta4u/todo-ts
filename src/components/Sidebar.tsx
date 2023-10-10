@@ -87,6 +87,9 @@ export function Sidebar({
           <TodayBtn handleIsActive={handleIsActive} isActive={isActive} />
           <UpcomingBtn handleIsActive={handleIsActive} isActive={isActive} />
         </div>
+        <div className="text-xs absolute bottom-4 left-24 italic text-gray-500">
+          Develop by Yuta4u
+        </div>
       </div>
     </div>
   )
