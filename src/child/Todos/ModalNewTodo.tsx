@@ -34,7 +34,6 @@ export function ModalNewTodo() {
     mutationFn: postTodos,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["todos"] })
-      alertSuccess()
     },
   })
 

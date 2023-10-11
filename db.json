@@ -2,5 +2,13 @@
   "user": {
     "name": "yuta"
   },
-  "todos": []
+  "todos": [
+    {
+      "title": "asd",
+      "deskripsi": "asd",
+      "date": "Wed 11 Oct",
+      "check": false,
+      "id": 1
+    }
+  ]
 }

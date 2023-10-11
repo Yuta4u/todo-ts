@@ -8,21 +8,14 @@ type TPostTodos = {
   check: boolean
 }
 
-export async function getTodos() {
-  const res = await axios.get(`${url}/todos`)
-  return res.data
+export function getTodos() {
+  return axios.get(`${url}/todos`).then((res) => res.data)
 }
 
-export async function postTodos(data: TPostTodos) {
-  const post = await axios.post(`${url}/todos`, data)
-  if (post) {
-    console.log("berhasil", data)
-  }
+export function postTodos(data: TPostTodos) {
+  return axios.post(`${url}/todos`, data).then((res) => res.data)
 }
 
 export async function deleteTodos(id: number) {
   const del = await axios.delete(`${url}/todos/${id}`)
-  if (del) {
-    console.log(`berhasil delete todos dengan id ${id}`)
-  }
 }
