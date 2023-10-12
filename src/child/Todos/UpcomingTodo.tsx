@@ -16,7 +16,6 @@ type upcomingTodoProps = {
 export function UpcomingTodo({ todos }: upcomingTodoProps) {
   const [activeBtn, setActiveBtn] = useState("")
   const today: number = new Date().getDate()
-  console.log(activeBtn)
 
   // handle upcoming dates
   // =====================
@@ -36,6 +35,32 @@ export function UpcomingTodo({ todos }: upcomingTodoProps) {
   }
   const upcomingDates = upcomingDateFunc()
   // =====================
+
+  // todos data
+  const handleTodosData = (todos: todos[] | undefined) => {
+    let res: todos[][] = []
+    let temp: todos[] = []
+    todos?.map((e, i) => {
+      const last = todos.length - 1 === i
+      if (temp.length === 0) {
+        temp.push(e)
+      } else {
+        if (temp[0].date === e.date) {
+          temp.push(e)
+        } else {
+          res.push(temp)
+          temp = [e]
+        }
+      }
+      // if last data
+      if (last) {
+        res.push(temp)
+      }
+    })
+    return res
+  }
+
+  const todosData = handleTodosData(todos)
 
   return (
     <>
@@ -63,15 +88,7 @@ export function UpcomingTodo({ todos }: upcomingTodoProps) {
           ))}
         </div>
       </div>
-      <div className="flex overflow-x-auto pt-16 gap-10 overscroll-x-auto">
-        <UpcomingTodoCard />
-        <UpcomingTodoCard />
-        <UpcomingTodoCard />
-        <UpcomingTodoCard />
-        <UpcomingTodoCard />
-        <UpcomingTodoCard />
-        <UpcomingTodoCard />
-      </div>
+      <div className="flex overflow-x-auto pt-16 gap-10 scrollbar-hide whitespace-nowrap"></div>
     </>
   )
 }

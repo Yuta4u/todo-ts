@@ -32,32 +32,11 @@
       "id": 6
     },
     {
-      "title": "asdasdas",
-      "deskripsi": "dasd",
-      "date": "Fri 13 Oct",
+      "title": "ff",
+      "deskripsi": "ff",
+      "date": "Mon 16 Oct",
       "check": false,
       "id": 7
-    },
-    {
-      "title": "a",
-      "deskripsi": "a",
-      "date": "Fri 13 Oct",
-      "check": false,
-      "id": 8
-    },
-    {
-      "title": "b",
-      "deskripsi": "b",
-      "date": "Fri 13 Oct",
-      "check": false,
-      "id": 9
-    },
-    {
-      "title": "c",
-      "deskripsi": "c",
-      "date": "Fri 13 Oct",
-      "check": false,
-      "id": 10
     }
   ]
 }
