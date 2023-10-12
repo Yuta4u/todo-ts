@@ -77,15 +77,14 @@ export function Upcoming() {
       ["date"]: `${day} ${date} ${month}`,
     }
   })
-
   // ======================
 
   return (
     <div className="my-14 mx-auto tablet:w-9/12 laptop:w-3/4 ">
       <div className="flex gap-2 flex-col">
         <div className="text-xl font-semibold mb-2 fixed">{monthYear}</div>
-        <UpcomingTodo />
       </div>
+      <UpcomingTodo todos={upComingData} />
     </div>
   )
 }

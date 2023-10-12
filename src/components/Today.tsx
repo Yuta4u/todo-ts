@@ -15,10 +15,6 @@ type TodosProps = {
   check: boolean
 }[]
 
-// type TodosDataProps = {
-//   todos: TodosProps[]
-// }[]
-
 export function Today() {
   const queryClient = useQueryClient()
   const [nTodo, setNTodo] = useState<boolean>(false)
@@ -44,7 +40,7 @@ export function Today() {
   }
 
   return (
-    <div className="my-20 mx-auto tablet:w-8/12 laptop:w-2/4">
+    <div className="my-20 mx-auto tablet:w-8/12 laptop:w-2/4 bg-slate-400">
       <div className="flex gap-2 mb-7">
         <div className="text-2xl font-bold">Today</div>
         <div className="text-xs text-gray-500 mt-3">{today}</div>
