@@ -1,4 +1,5 @@
 import { useQuery, useQueryClient } from "react-query"
+import { UpcomingTodo } from "../child/Todos/UpcomingTodo"
 import { getTodos } from "../api"
 
 type TodosProps = {
@@ -20,9 +21,30 @@ export function Upcoming() {
     refetchOnWindowFocus: false,
   })
 
-  // today
-  const date = Date().split(" ")
-  const today = `${date[0] + " " + +date[2] + " " + date[1]}`
+  // Month Year
+  // ==========
+  const monthYearFunc = () => {
+    const date = Date().split(" ")
+    const tempMonth = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ]
+    const month = tempMonth.filter((e) => e.substring(0, 3) === date[1])
+    return `${month} ${date[3]}`
+  }
+
+  const monthYear = monthYearFunc()
+  // ==========
 
   // handle sorted function
   // ======================
@@ -37,14 +59,14 @@ export function Upcoming() {
 
   // handle fix day
   const fixDay = (dayStr: string) => {
-    const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
-    const indexDays = days.indexOf(dayStr)
+    const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+    const indexDays = days.lastIndexOf(dayStr)
     const day = days[indexDays - 1]
     return day
   }
 
   const tempSortedData = tempData?.sort((a, b) => a.date - b.date)
-  const sortedData = tempSortedData?.map((e) => {
+  const upComingData = tempSortedData?.map((e) => {
     const dateArr = new Date(e.date).toString().split(" ")
     const day = fixDay(dateArr[0])
     const date = dateArr[2]
@@ -58,19 +80,11 @@ export function Upcoming() {
 
   // ======================
 
-  const upComingTodos = sortedData?.filter((e) => e.date != today)
-
   return (
-    <div className="w-2/4 mx-auto my-20 ">
-      <div className="flex gap-2">
-        <div className="text-2xl font-bold">Upcoming</div>
-        {upComingTodos?.map((e, i) => (
-          <div key={i}>
-            <div>{e.title}</div>
-            <div>{e.deskripsi}</div>
-            <div>{e.date}</div>
-          </div>
-        ))}
+    <div className="my-14 mx-auto tablet:w-9/12 laptop:w-3/4 ">
+      <div className="flex gap-2 flex-col">
+        <div className="text-xl font-semibold mb-2 fixed">{monthYear}</div>
+        <UpcomingTodo />
       </div>
     </div>
   )

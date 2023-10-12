@@ -12,7 +12,7 @@ export function SidebarBtn({
   return (
     <button
       onClick={() => handleShowSidebar(!showSidebar)}
-      className="btn btn-square btn-xs bg-transparent border-none absolute top-7 left-5 text-red-200 "
+      className="btn btn-square btn-xs bg-transparent border-none top-7 left-5 text-red-200 fixed"
     >
       <SidebarIcon className="w-5 h-5" />
     </button>

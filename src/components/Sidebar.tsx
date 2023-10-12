@@ -43,7 +43,7 @@ export function Sidebar({
       } tablet:absolute laptop:static duration-300 h-screen z-50`}
     >
       <div
-        className={`sidebar w-72 ${show} h-screen py-5 px-5 bg-primary fixed`}
+        className={`sidebar w-72 ${show} h-screen py-5 px-5 bg-red-50 fixed`}
       >
         <button
           onClick={() => handleShowSidebar(!showSidebar)}
