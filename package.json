@@ -28,7 +28,8 @@
     "client": "react-scripts start",
     "build": "react-scripts build",
     "server": "json-server --watch db.json --port 5000",
-    "build-and-serve": "concurrently \"npm run build\" \"npm run server\"",
+    "build-and-serve": "concurrently \"npm run build\" \"npm run server\" \"deploy netlify\"",
+    "deploy-netlify": "netlify deploy",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
