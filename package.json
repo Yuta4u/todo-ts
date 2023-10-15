@@ -12,7 +12,6 @@
     "@types/react-dom": "^18.2.8",
     "axios": "^1.5.1",
     "daisyui": "^3.8.2",
-    "netlify-cli": "^16.7.0",
     "react": "^18.2.0",
     "react-calendar": "^4.6.0",
     "react-dom": "^18.2.0",
@@ -28,7 +27,7 @@
     "client": "react-scripts start",
     "build": "react-scripts build",
     "server": "json-server --watch db.json --port 5000",
-    "build-and-serve": "concurrently \"npm run build\" \"npm run server\" \"deploy netlify\"",
+    "build-and-serve": "concurrently \"npm run build\" \"npm run server\"",
     "deploy-netlify": "netlify deploy",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

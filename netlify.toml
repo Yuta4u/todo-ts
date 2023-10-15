@@ -1,8 +1,0 @@
-[build]
-command = "npm run build-and-serve"
-publish = "build"
-
-[[redirects]]
-from = "/api/*"
-to = "http://localhost:5000/:splat"
-status = 200
