@@ -2,7 +2,7 @@ import { useState } from "react"
 import { ReactComponent as CloseIcon } from "../../assets/icons/close.svg"
 import { postTodos } from "../../api"
 import { useMutation, useQueryClient } from "react-query"
-import CalendarComponent from "../Others/Calendar"
+import { CalendarComponent } from "../Others/Calendar"
 
 type NewTodoProps = {
   handleNTodo: React.Dispatch<React.SetStateAction<boolean>>

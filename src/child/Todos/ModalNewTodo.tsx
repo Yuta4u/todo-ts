@@ -3,7 +3,7 @@ import { useState } from "react"
 import { useMutation, useQueryClient } from "react-query"
 import { postTodos } from "../../api"
 
-import CalendarComponent from "../Others/Calendar"
+import { CalendarComponent } from "../Others/Calendar"
 
 type TempNewTodoProps = {
   title: string
@@ -117,7 +117,7 @@ export function ModalNewTodo() {
               />
             </div>
           </div>
-          <div tabIndex={0} className="dropdown-content mt-5 absolute z-10">
+          <div tabIndex={0} className="dropdown-content mt-2 absolute z-10">
             <CalendarComponent handleOnChange={handleOnChangeNewTodoDate} />
           </div>
         </div>

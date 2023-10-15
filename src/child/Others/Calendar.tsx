@@ -5,13 +5,13 @@ type CalendarComponentProps = {
   handleOnChange: (value: string | undefined) => void
 }
 
-const CalendarComponent = ({ handleOnChange }: CalendarComponentProps) => {
+export const CalendarComponent = ({
+  handleOnChange,
+}: CalendarComponentProps) => {
   return (
     <Calendar
-      className="calendar-container tablet:w-72"
+      className="calendar-container tablet:w-64 laptop:w-72"
       onChange={(value) => handleOnChange(value?.toString())}
     />
   )
 }
-
-export default CalendarComponent

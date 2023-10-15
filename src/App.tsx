@@ -4,6 +4,8 @@ import { Today } from "./components/Today"
 import { Upcoming } from "./components/Upcoming"
 import { useState } from "react"
 import { QueryClient, QueryClientProvider } from "react-query"
+import { ToastContainer } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 import "./index.css"
 
 const queryClient = new QueryClient()
@@ -26,6 +28,7 @@ function App() {
           showSidebar={showSidebar}
         />
         {isActive === "today" ? <Today /> : <Upcoming />}
+        <ToastContainer />
       </div>
     </QueryClientProvider>
   )

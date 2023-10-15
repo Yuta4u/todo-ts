@@ -1,5 +1,6 @@
 import { deleteTodos } from "../../api"
 import { useMutation, useQueryClient } from "react-query"
+import { ToastSuccess } from "../Others/Toast"
 
 type todo = {
   id: number
@@ -19,11 +20,14 @@ export function TodayTodo({ data }: TodayTodoProps) {
   // delete mutation
   const deleteTodosMutation = useMutation({
     mutationFn: deleteTodos,
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["todos"] }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["todos"] })
+    },
   })
 
   // handle delete
   const handleDeleteTodos = (): void => {
+    ToastSuccess()
     deleteTodosMutation.mutate(data.id)
   }
 
@@ -42,7 +46,6 @@ export function TodayTodo({ data }: TodayTodoProps) {
           </div>
         </div>
       </div>
-
       <div className="divider" />
     </>
   )

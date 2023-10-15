@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { UpcomingTodoContent } from "./UpcomingContent"
 import { UpcomingTodoCard } from "./UpcomingTodoCard"
 
 type todos = {
@@ -34,6 +35,8 @@ export function UpcomingTodo({ todos }: upcomingTodoProps) {
     return arr
   }
   const upcomingDates = upcomingDateFunc()
+  const upcomingContent = upcomingDates.slice(3, upcomingDates.length)
+
   // =====================
 
   // todos data
@@ -80,7 +83,11 @@ export function UpcomingTodo({ todos }: upcomingTodoProps) {
                 className={`text-center tablet:text-xs laptop:text-sm font-medium  `}
               >
                 <div className="text-gray-500 text-xs font-thin">{e[0]}</div>
-                <div className={`${+e[1] === today ? "text-red-500" : ""}`}>
+                <div
+                  className={`font-semibold ${
+                    +e[1] === today ? "text-red-500" : ""
+                  }`}
+                >
                   {e[1]}
                 </div>
               </div>
@@ -88,7 +95,9 @@ export function UpcomingTodo({ todos }: upcomingTodoProps) {
           ))}
         </div>
       </div>
-      <div className="flex overflow-x-auto pt-16 gap-10 scrollbar-hide whitespace-nowrap"></div>
+      <div className="flex overflow-auto pt-16 gap-10 scrollbar-hide whitespace-nowrap">
+        <UpcomingTodoContent todos={todosData} dates={upcomingContent} />
+      </div>
     </>
   )
 }
