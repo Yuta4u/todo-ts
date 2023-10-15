@@ -16,6 +16,6 @@ export function postTodos(data: TPostTodos) {
   return axios.post(`${url}/todos`, data).then((res) => res.data)
 }
 
-export async function deleteTodos(id: number) {
-  const del = await axios.delete(`${url}/todos/${id}`)
+export function deleteTodos(id: number) {
+  return axios.delete(`${url}/todos/${id}`)
 }

@@ -62,9 +62,9 @@ export function Sidebar({
               className="avatar placeholder active:cursor-grabbing"
             >
               <div className="bg-cyan-500 text-stone-50 rounded-full w-8">
-                <span className="text-md font-semibold">J</span>
+                <span className="text-md font-semibold">Y</span>
               </div>
-              <div className="ml-2 ">Josh</div>
+              <div className="ml-2 ">Yuta</div>
               <div className="pl-3">
                 <ArrowDown className="w-3 h-3 font-bold" />
               </div>

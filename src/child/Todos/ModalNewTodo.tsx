@@ -21,14 +21,6 @@ export function ModalNewTodo() {
     check: false,
   })
 
-  const alertSuccess = () => {
-    return (
-      <div className="alert alert-success">
-        <span>Your purchase has been confirmed!</span>
-      </div>
-    )
-  }
-
   // post mutation function
   const postTodosMutation = useMutation({
     mutationFn: postTodos,
@@ -66,7 +58,7 @@ export function ModalNewTodo() {
     const { name, value } = event.target
     const checkColumn = value.match(/\n/g)
 
-    if (checkColumn?.length != 4) {
+    if (checkColumn?.length !== 4) {
       setTempNewTodo({
         ...tempNewTodo,
         [name]: value,
