@@ -4,5 +4,5 @@ publish = "build"
 
 [[redirects]]
 from = "/api/*"
-to = "http://localhost:3001/:splat"
+to = "http://localhost:5000/:splat"
 status = 200
