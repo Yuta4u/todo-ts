@@ -12,7 +12,7 @@ type TempNewTodoProps = {
   title: string
   deskripsi: string
   date: string | undefined
-  check: boolean
+  check: number
 }
 
 export function NewTodo({ handleNTodo }: NewTodoProps) {
@@ -21,7 +21,7 @@ export function NewTodo({ handleNTodo }: NewTodoProps) {
     title: "",
     deskripsi: "",
     date: "",
-    check: false,
+    check: 1,
   })
 
   // post mutation function
@@ -30,6 +30,7 @@ export function NewTodo({ handleNTodo }: NewTodoProps) {
     onSuccess: () => {
       handleNTodo(false)
       queryClient.invalidateQueries({ queryKey: ["todos"] })
+      console.log("berhasil")
     },
   })
 
@@ -40,7 +41,7 @@ export function NewTodo({ handleNTodo }: NewTodoProps) {
       title: "",
       deskripsi: "",
       date: "",
-      check: false,
+      check: 1,
     })
   }
 

@@ -7,7 +7,7 @@ type TodosProps = {
   title: string
   deskripsi: string
   date: string
-  check: boolean
+  check: number
 }[]
 
 export function Upcoming() {

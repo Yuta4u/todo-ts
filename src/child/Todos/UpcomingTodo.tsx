@@ -7,7 +7,7 @@ type todos = {
   id: number
   title: string
   deskripsi: string
-  check: boolean
+  check: number
 }
 
 type upcomingTodoProps = {

@@ -7,7 +7,7 @@ type todo = {
   title: string
   deskripsi: string
   date: string
-  check: boolean
+  check: number
 }
 
 type TodayTodoProps = {

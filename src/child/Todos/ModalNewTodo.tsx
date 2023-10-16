@@ -9,7 +9,7 @@ type TempNewTodoProps = {
   title: string
   deskripsi: string
   date: string | undefined
-  check: boolean
+  check: number
 }
 
 export function ModalNewTodo() {
@@ -18,7 +18,7 @@ export function ModalNewTodo() {
     title: "",
     deskripsi: "",
     date: "",
-    check: false,
+    check: 1,
   })
 
   // post mutation function
@@ -36,7 +36,7 @@ export function ModalNewTodo() {
       title: "",
       deskripsi: "",
       date: "",
-      check: false,
+      check: 1,
     })
   }
 
