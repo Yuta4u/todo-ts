@@ -12,9 +12,10 @@ type todos = {
 
 type upcomingTodoProps = {
   todos: todos[] | undefined
+  handleIsActive: React.Dispatch<React.SetStateAction<string>>
 }
 
-export function UpcomingTodo({ todos }: upcomingTodoProps) {
+export function UpcomingTodo({ todos, handleIsActive }: upcomingTodoProps) {
   const [activeBtn, setActiveBtn] = useState("")
   const today: number = new Date().getDate()
 
@@ -96,7 +97,11 @@ export function UpcomingTodo({ todos }: upcomingTodoProps) {
         </div>
       </div>
       <div className="flex overflow-auto pt-16 gap-10 scrollbar-hide whitespace-nowrap">
-        <UpcomingTodoContent todos={todosData} dates={upcomingContent} />
+        <UpcomingTodoContent
+          todos={todosData}
+          dates={upcomingContent}
+          handleIsActive={handleIsActive}
+        />
       </div>
     </>
   )

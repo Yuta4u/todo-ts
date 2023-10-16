@@ -11,13 +11,16 @@ type todo = {
 type UpcomingTodoContentProps = {
   todos: todo[]
   dates: string[][]
+  handleIsActive: React.Dispatch<React.SetStateAction<string>>
 }
 
 export function UpcomingTodoContent({
   todos,
   dates,
+  handleIsActive,
 }: UpcomingTodoContentProps) {
   const today: number = new Date().getDate()
+  console.log(dates, "lel")
 
   const upcomingTodoDataFunc = () => {
     let res: todo[][] = []
@@ -54,7 +57,11 @@ export function UpcomingTodoContent({
             {upcomingTodoData[i][0] ? (
               <div className="flex flex-col gap-5">
                 {upcomingTodoData[i][0].map((todo, j) => (
-                  <UpcomingTodoCard todo={todo} key={j} />
+                  <UpcomingTodoCard
+                    todo={todo}
+                    key={j}
+                    handleIsActive={handleIsActive}
+                  />
                 ))}
               </div>
             ) : (

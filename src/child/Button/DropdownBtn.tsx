@@ -1,4 +1,5 @@
 import { ReactComponent as Setting } from "../../assets/icons/setting.svg"
+import { ReactComponent as Github } from "../../assets/icons/github.svg"
 
 export function DropdownBtn() {
   return (
@@ -8,12 +9,18 @@ export function DropdownBtn() {
     >
       <li>
         <div
-          onClick={() => alert("hello")}
+          onClick={() => alert("UPDATE SOON!")}
           className="text-black hover:bg-hover"
         >
           <Setting className="w-6 h-6" />
           Settings
         </div>
+        <a href="https://github.com/Yuta4u">
+          <div className="text-black hover:bg-hover flex">
+            <Github className="w-6 h-6 mr-2" />
+            Github
+          </div>
+        </a>
       </li>
     </ul>
   )

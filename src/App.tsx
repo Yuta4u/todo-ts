@@ -27,7 +27,11 @@ function App() {
           handleShowSidebar={setShowSidebar}
           showSidebar={showSidebar}
         />
-        {isActive === "today" ? <Today /> : <Upcoming />}
+        {isActive === "today" ? (
+          <Today />
+        ) : (
+          <Upcoming handleIsActive={setIsActive} />
+        )}
         <ToastContainer />
       </div>
     </QueryClientProvider>

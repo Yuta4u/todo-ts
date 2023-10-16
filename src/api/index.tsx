@@ -13,34 +13,17 @@ type TPostTodos = {
 }
 
 export function getTodos() {
-  return axios
-    .get(url, { headers })
-    .then((response) => {
-      response.data.todos
-    })
-    .catch((error) => {
-      console.error("Error fetching users:", error)
-    })
+  return axios.get(url, { headers }).then((response) => response?.data?.todos)
 }
 
 export function postTodos(data: TPostTodos) {
-  return axios
-    .post(url, data, { headers })
-    .then((response) => {
-      console.log("Todos created:", response.data)
-    })
-    .catch((error) => {
-      console.error("Error creating user:", error)
-    })
+  return axios.post(url, data, { headers }).then((response) => {
+    console.log("Todos created:", response.data)
+  })
 }
 
 export function deleteTodos(id: number) {
-  return axios
-    .delete(`${url}/${id}`, { headers })
-    .then((response) => {
-      console.log("Todos deleted:", response.data)
-    })
-    .catch((error) => {
-      console.error("Error deleting user:", error)
-    })
+  return axios.delete(`${url}/${id}`, { headers }).then((response) => {
+    console.log("Todos deleted:", response.data)
+  })
 }

@@ -10,7 +10,11 @@ type TodosProps = {
   check: number
 }[]
 
-export function Upcoming() {
+type UpcomingProps = {
+  handleIsActive: React.Dispatch<React.SetStateAction<string>>
+}
+
+export function Upcoming({ handleIsActive }: UpcomingProps) {
   const queryClient = useQueryClient()
   const data: TodosProps | undefined = queryClient.getQueryData("todos")
 
@@ -84,7 +88,7 @@ export function Upcoming() {
       <div className="flex gap-2 flex-col">
         <div className="text-xl font-semibold mb-2 fixed">{monthYear}</div>
       </div>
-      <UpcomingTodo todos={upComingData} />
+      <UpcomingTodo todos={upComingData} handleIsActive={handleIsActive} />
     </div>
   )
 }
