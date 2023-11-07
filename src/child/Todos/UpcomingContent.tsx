@@ -20,17 +20,22 @@ export function UpcomingTodoContent({
   handleIsActive,
 }: UpcomingTodoContentProps) {
   const today: number = new Date().getDate()
-  console.log(dates, "lel")
 
   const upcomingTodoDataFunc = () => {
     let res: todo[][] = []
-    dates.map((date) => {
+    let test: any = []
+
+    dates.map((date, i) => {
       const dateStr = date.join(" ")
-      const filteredTodo = todos.filter(
-        (todo) => todo[0].date.substring(0, 6) === dateStr
-      )
+
+      const filteredTodo = todos.filter((todo) => {
+        const dateTodo = todo[0].date
+        return dateTodo.substring(0, dateTodo.lastIndexOf(" ")) === dateStr
+      })
+
       res.push(filteredTodo)
     })
+
     return res
   }
 

@@ -25,6 +25,7 @@ export function Today() {
 
   // filtered data
   const data: TodosProps | undefined = queryClient.getQueryData("todos")
+
   const filteredTodos = data && data.filter((e) => e.date == today)
 
   // handle get data

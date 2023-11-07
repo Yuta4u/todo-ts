@@ -73,7 +73,10 @@ export function Upcoming({ handleIsActive }: UpcomingProps) {
   const upComingData = tempSortedData?.map((e) => {
     const dateArr = new Date(e.date).toString().split(" ")
     const day = fixDay(dateArr[0])
-    const date = dateArr[2]
+    const date =
+      dateArr[2].length === 2 && dateArr[2][0] === "0"
+        ? dateArr[2][1]
+        : dateArr[2]
     const month = dateArr[1]
 
     return {

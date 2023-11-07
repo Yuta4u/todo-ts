@@ -41,6 +41,7 @@ export function UpcomingTodo({ todos, handleIsActive }: upcomingTodoProps) {
   // =====================
 
   // todos data
+
   const handleTodosData = (todos: todos[] | undefined) => {
     let res: todos[][] = []
     let temp: todos[] = []
@@ -61,6 +62,7 @@ export function UpcomingTodo({ todos, handleIsActive }: upcomingTodoProps) {
         res.push(temp)
       }
     })
+
     return res
   }
 

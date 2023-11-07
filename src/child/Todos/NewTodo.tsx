@@ -30,7 +30,7 @@ export function NewTodo({ handleNTodo }: NewTodoProps) {
     onSuccess: () => {
       handleNTodo(false)
       queryClient.invalidateQueries({ queryKey: ["todos"] })
-      console.log("berhasil")
+      // console.log("berhasil")
     },
   })
 
