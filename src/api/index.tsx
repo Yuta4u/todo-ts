@@ -1,5 +1,5 @@
 import axios from "axios"
-const url = "https://todo-ts-be-production.up.railway.app/v1/todos"
+const url = "https://api-todo-weld.vercel.app/api/v1/todos"
 
 const headers: any = {
   "Content-Type": "application/json",
